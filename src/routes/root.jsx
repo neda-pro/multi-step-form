@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { Box, Paper } from "@mui/material";
 import Step from "../components/Step";
 
 export default function Root() {
+  const { step } = useSelector((store) => store.step);
+  console.log(step);
+
   return (
     <>
       <Box
@@ -39,25 +43,25 @@ export default function Root() {
               step={1}
               title={"step 1"}
               subTitle={"your info"}
-              selected={true}
+              selected={step == 1}
             />
             <Step
               step={2}
               title={"step 2"}
               subTitle={"select plan"}
-              selected={false}
+              selected={step == 2}
             />
             <Step
               step={3}
               title={"step 3"}
               subTitle={"add-ons"}
-              selected={false}
+              selected={step == 3}
             />
             <Step
               step={4}
               title={"step 4"}
               subTitle={"summary"}
-              selected={false}
+              selected={step == 4}
             />
           </Box>
           <Box sx={{ flex: 1 }}>
