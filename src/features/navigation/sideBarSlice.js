@@ -4,10 +4,10 @@ const initialState = {
   step: 1,
 };
 
-const stepSlice = createSlice({
+const sideBarSlice = createSlice({
   name: "side bar",
   initialState,
   reducers: {},
 });
 
-export default stepSlice.reducer;
+export default sideBarSlice.reducer;

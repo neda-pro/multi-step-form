@@ -2,10 +2,15 @@ import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { Box, Paper } from "@mui/material";
 import Step from "../components/Step";
+import Heading from "../components/Heading";
+import FooterButtons from "../components/FooterButtons";
 
 export default function Root() {
   const { step } = useSelector((store) => store.step);
-  console.log(step);
+  const { title, description } = useSelector((store) => store.heading);
+  const { hideBack, hideNext, isConfirm } = useSelector(
+    (store) => store.footer
+  );
 
   return (
     <>
@@ -43,29 +48,48 @@ export default function Root() {
               step={1}
               title={"step 1"}
               subTitle={"your info"}
-              selected={step == 1}
+              selected={step === 1}
             />
             <Step
               step={2}
               title={"step 2"}
               subTitle={"select plan"}
-              selected={step == 2}
+              selected={step === 2}
             />
             <Step
               step={3}
               title={"step 3"}
               subTitle={"add-ons"}
-              selected={step == 3}
+              selected={step === 3}
             />
             <Step
               step={4}
               title={"step 4"}
               subTitle={"summary"}
-              selected={step == 4}
+              selected={step === 4}
             />
           </Box>
-          <Box sx={{ flex: 1 }}>
-            <Outlet />
+
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              paddingX: "100px",
+              paddingTop: "56px",
+              paddingBottom: "32px",
+              boxSizing: "border-box",
+            }}
+          >
+            <Heading title={title} description={description} />
+            <Box sx={{ flex: 1 }}>
+              <Outlet />
+            </Box>
+            <FooterButtons
+              hideBack={hideBack}
+              hideNext={hideNext}
+              isConfirm={isConfirm}
+            />
           </Box>
         </Paper>
       </Box>
