@@ -5,7 +5,7 @@ import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import UserInfo from "./routes/user-info";
 import AddOns from "./routes/add-ons";
-import Confirmation from "./routes/confirmation";
+import Done from "./routes/done";
 import Plan from "./routes/plan";
 import Summary from "./routes/summary";
 import { Provider } from "react-redux";
@@ -23,20 +23,20 @@ const router = createBrowserRouter([
         element: <UserInfo />,
       },
       {
-        path: "add-ons",
-        element: <AddOns />,
-      },
-      {
-        path: "confirmation",
-        element: <Confirmation />,
-      },
-      {
         path: "plan",
         element: <Plan />,
       },
       {
+        path: "add-ons",
+        element: <AddOns />,
+      },
+      {
         path: "summary",
         element: <Summary />,
+      },
+      {
+        path: "done",
+        element: <Done />,
       },
     ],
   },
