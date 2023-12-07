@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Box, Paper } from "@mui/material";
 import Step from "../components/Step";
 import Heading from "../components/Heading";
 import FooterButtons from "../components/FooterButtons";
+import { useEffect } from "react";
 
 export default function Root() {
   const { step } = useSelector((store) => store.step);
@@ -11,6 +12,10 @@ export default function Root() {
   const { hideBack, hideNext, isConfirm } = useSelector(
     (store) => store.footer
   );
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/user-info");
+  }, []);
 
   return (
     <>
