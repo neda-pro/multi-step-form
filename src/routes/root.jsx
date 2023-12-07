@@ -13,9 +13,9 @@ export default function Root() {
     (store) => store.footer
   );
   const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/user-info");
-  }, []);
+  // useEffect(() => {
+  //   navigate("/user-info");
+  // }, []);
 
   return (
     <>
