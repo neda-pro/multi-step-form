@@ -7,7 +7,12 @@ const initialState = {
 const sideBarSlice = createSlice({
   name: "side bar",
   initialState,
-  reducers: {},
+  reducers: {
+    setStep: (state, { payload }) => {
+      state.step = payload;
+    },
+  },
 });
 
 export default sideBarSlice.reducer;
+export const { setStep } = sideBarSlice.actions;

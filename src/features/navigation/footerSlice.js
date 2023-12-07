@@ -9,7 +9,15 @@ const initialState = {
 const footerSlicer = createSlice({
   name: "footer",
   initialState,
-  reducers: {},
+  reducers: {
+    setButtons: (state, { payload }) => {
+      const { hideBack, hideNext, isConfirm } = payload;
+      state.hideBack = hideBack;
+      state.hideNext = hideNext;
+      state.isConfirm = isConfirm;
+    },
+  },
 });
 
 export default footerSlicer.reducer;
+export const { setButtons } = footerSlicer.actions;
