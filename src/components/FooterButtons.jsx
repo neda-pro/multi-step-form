@@ -1,9 +1,16 @@
 import { Box, Button } from "@mui/material";
 
-const FooterButtons = ({ hideBack, hideNext, isConfirm }) => {
+const FooterButtons = ({
+  hideBack,
+  hideNext,
+  isConfirm,
+  onNextClick,
+  onPrevClick,
+}) => {
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
       <Button
+        onClick={onPrevClick}
         sx={{
           visibility: hideBack ? "hidden" : "visible",
           fontFamily: "Ubuntu",
@@ -17,6 +24,7 @@ const FooterButtons = ({ hideBack, hideNext, isConfirm }) => {
         go back
       </Button>
       <Button
+        onClick={onNextClick}
         sx={{
           "&:hover": { backgroundColor: "#022959" },
           visibility: hideNext ? "hidden" : "visible",

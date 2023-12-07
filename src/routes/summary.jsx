@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { setDescription, setTitle } from "../features/navigation/headerSlice";
 import { useDispatch } from "react-redux";
 import { setStep } from "../features/navigation/sideBarSlice";
-import { setButtons } from "../features/navigation/footerSlice";
+import { setButtons, setNav } from "../features/navigation/footerSlice";
 
 const Summary = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,12 @@ const Summary = () => {
         hideBack: false,
         hideNext: false,
         isConfirm: true,
+      })
+    );
+    dispatch(
+      setNav({
+        next: "done",
+        previous: "add-ons",
       })
     );
   }, []);

@@ -4,6 +4,8 @@ const initialState = {
   hideBack: true,
   hideNext: false,
   isConfirm: false,
+  next: "plan",
+  previous: "",
 };
 
 const footerSlicer = createSlice({
@@ -16,8 +18,13 @@ const footerSlicer = createSlice({
       state.hideNext = hideNext;
       state.isConfirm = isConfirm;
     },
+    setNav: (state, { payload }) => {
+      const { next, previous } = payload;
+      state.next = next;
+      state.previous = previous;
+    },
   },
 });
 
 export default footerSlicer.reducer;
-export const { setButtons } = footerSlicer.actions;
+export const { setButtons, setNav } = footerSlicer.actions;

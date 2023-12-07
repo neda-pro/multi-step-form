@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { setDescription, setTitle } from "../features/navigation/headerSlice";
 import { useDispatch } from "react-redux";
 import { setStep } from "../features/navigation/sideBarSlice";
-import { setButtons } from "../features/navigation/footerSlice";
+import { setButtons, setNav } from "../features/navigation/footerSlice";
 
 const UserInfo = () => {
   const dispatch = useDispatch();
@@ -19,6 +19,12 @@ const UserInfo = () => {
         hideBack: true,
         hideNext: false,
         isConfirm: false,
+      })
+    );
+    dispatch(
+      setNav({
+        next: "plan",
+        previous: "",
       })
     );
   }, []);

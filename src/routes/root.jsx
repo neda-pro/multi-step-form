@@ -4,18 +4,14 @@ import { Box, Paper } from "@mui/material";
 import Step from "../components/Step";
 import Heading from "../components/Heading";
 import FooterButtons from "../components/FooterButtons";
-import { useEffect } from "react";
 
 export default function Root() {
   const { step } = useSelector((store) => store.step);
   const { title, description } = useSelector((store) => store.heading);
-  const { hideBack, hideNext, isConfirm } = useSelector(
+  const { hideBack, hideNext, isConfirm, next, previous } = useSelector(
     (store) => store.footer
   );
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   navigate("/user-info");
-  // }, []);
 
   return (
     <>
@@ -91,6 +87,12 @@ export default function Root() {
               <Outlet />
             </Box>
             <FooterButtons
+              onNextClick={() => {
+                navigate(next);
+              }}
+              onPrevClick={() => {
+                navigate(previous);
+              }}
               hideBack={hideBack}
               hideNext={hideNext}
               isConfirm={isConfirm}
