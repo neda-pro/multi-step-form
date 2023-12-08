@@ -6,9 +6,15 @@ const FooterButtons = ({
   isConfirm,
   onNextClick,
   onPrevClick,
+  isSubmit,
 }) => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
       <Button
         onClick={onPrevClick}
         sx={{
@@ -24,7 +30,8 @@ const FooterButtons = ({
         go back
       </Button>
       <Button
-        onClick={onNextClick}
+        type={isSubmit ? "submit" : "button"}
+        onClick={() => (isSubmit ? null : onNextClick)}
         sx={{
           "&:hover": { backgroundColor: "#022959" },
           visibility: hideNext ? "hidden" : "visible",

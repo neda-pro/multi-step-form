@@ -1,17 +1,12 @@
 import { useSelector } from "react-redux";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Box, Paper } from "@mui/material";
 import Step from "../components/Step";
 import Heading from "../components/Heading";
-import FooterButtons from "../components/FooterButtons";
 
 export default function Root() {
   const { step } = useSelector((store) => store.step);
   const { title, description } = useSelector((store) => store.heading);
-  const { hideBack, hideNext, isConfirm, next, previous } = useSelector(
-    (store) => store.footer
-  );
-  const navigate = useNavigate();
 
   return (
     <>
@@ -83,20 +78,9 @@ export default function Root() {
             }}
           >
             <Heading title={title} description={description} />
-            <Box sx={{ flex: 1 }}>
+            <Box sx={{ display: "flex", flex: 1 }}>
               <Outlet />
             </Box>
-            <FooterButtons
-              onNextClick={() => {
-                navigate(next);
-              }}
-              onPrevClick={() => {
-                navigate(previous);
-              }}
-              hideBack={hideBack}
-              hideNext={hideNext}
-              isConfirm={isConfirm}
-            />
           </Box>
         </Paper>
       </Box>
