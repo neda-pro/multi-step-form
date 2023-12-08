@@ -1,9 +1,17 @@
 import { TextField, FormControl } from "@mui/material";
 
-const FormInput = ({ label, type, placeholder, required, name }) => {
+const FormInput = ({
+  label,
+  type,
+  placeholder,
+  required,
+  name,
+  defaultValue,
+}) => {
   return (
     <FormControl fullWidth={true} variant="standard">
       <TextField
+        defaultValue={defaultValue}
         name={name}
         inputProps={{
           style: {

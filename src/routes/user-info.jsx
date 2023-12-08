@@ -7,11 +7,14 @@ import { setButtons, setNav } from "../features/navigation/footerSlice";
 import FormInput from "../components/FormInput";
 import FooterButtons from "../components/FooterButtons";
 import { Box } from "@mui/material";
+import { setUser } from "../features/product/subscriptionSlice";
 
 const UserInfo = () => {
   const { hideBack, hideNext, isConfirm, next, previous } = useSelector(
     (store) => store.footer
   );
+  const { user } = useSelector((store) => store.subscription);
+  const { name, email, phone } = user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -39,10 +42,17 @@ const UserInfo = () => {
 
   const registerForm = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
-    console.log(e.target[2].value);
-    console.log(e.target[4].value);
-    // navigate(`/${next}`);
+    // console.log(e.target[0].value);
+    // console.log(e.target[2].value);
+    // console.log(e.target[4].value);
+    dispatch(
+      setUser({
+        name: e.target[0].value,
+        email: e.target[2].value,
+        phone: e.target[4].value,
+      })
+    );
+    navigate(`/${next}`);
   };
   return (
     <form
@@ -65,6 +75,7 @@ const UserInfo = () => {
         }}
       >
         <FormInput
+          defaultValue={name}
           name="name"
           required={true}
           label={"Name"}
@@ -72,6 +83,7 @@ const UserInfo = () => {
           placeholder={"e.g. Stephen King"}
         />
         <FormInput
+          defaultValue={email}
           name="email"
           required={true}
           label={"Email Address"}
@@ -79,6 +91,7 @@ const UserInfo = () => {
           placeholder={"e.g. stephenking@lorem.com"}
         />
         <FormInput
+          defaultValue={phone}
           name="phone"
           required={true}
           label={"Phone Number"}
