@@ -8,6 +8,8 @@ import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import PlanTile from "../components/PlanTile";
 import ArcadeIcon from "../assets/images/icon-arcade.svg?react";
+import ProIcon from "../assets/images/icon-pro.svg?react";
+import AdvancedIcon from "../assets/images/icon-advanced.svg?react";
 import PlanSwitch from "../components/PlanSwitch";
 
 const Plan = () => {
@@ -61,7 +63,7 @@ const Plan = () => {
             selected={false}
           />
           <PlanTile
-            icon={<ArcadeIcon sx={{ width: "40px", height: "40px" }} />}
+            icon={<AdvancedIcon sx={{ width: "40px", height: "40px" }} />}
             title={"Arcade"}
             subTitle={"9$/mo"}
             description={"2 months free"}
@@ -69,7 +71,7 @@ const Plan = () => {
             selected={false}
           />
           <PlanTile
-            icon={<ArcadeIcon sx={{ width: "40px", height: "40px" }} />}
+            icon={<ProIcon sx={{ width: "40px", height: "40px" }} />}
             title={"Arcade"}
             subTitle={"9$/mo"}
             description={"2 months free"}
