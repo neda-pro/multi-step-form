@@ -8,6 +8,7 @@ import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import PlanTile from "../components/PlanTile";
 import ArcadeIcon from "../assets/images/icon-arcade.svg?react";
+import PlanSwitch from "../components/PlanSwitch";
 
 const Plan = () => {
   const { hideBack, hideNext, isConfirm, next, previous } = useSelector(
@@ -76,6 +77,11 @@ const Plan = () => {
             selected={false}
           />
         </Box>
+        <PlanSwitch
+          sx={{ marginTop: "32px" }}
+          isYearly={false}
+          onChange={() => console.log("changed")}
+        />
       </Box>
       <FooterButtons
         hideBack={hideBack}
