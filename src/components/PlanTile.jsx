@@ -1,5 +1,4 @@
-import { Box, ButtonBase, Card, SvgIcon, Typography } from "@mui/material";
-import ArcadeIcon from "../assets/images/icon-arcade.svg?react";
+import { Box, ButtonBase, Card, Typography } from "@mui/material";
 
 const PlanTile = ({
   icon,

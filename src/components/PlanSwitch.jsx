@@ -24,7 +24,7 @@ const PlanSwitch = ({ sx, isYearly, onChange }) => {
       >
         Monthly
       </Typography>
-      <Switch onChange={onChange} />
+      <Switch onChange={onChange} checked={isYearly} />
       <Typography
         sx={{
           color: isYearly ? "#022959" : "#9699AA",
