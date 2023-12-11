@@ -13,7 +13,7 @@ const subscriptionSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, { payload }) => {
-      state.user = payload;
+      state.user = payload; //state is a copy of initial state that we want to change it.
     },
   },
 });

@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { setDescription, setTitle } from "../features/navigation/headerSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { setDescription, setTitle } from "../features/navigation/headerSlice";
 import { setStep } from "../features/navigation/sideBarSlice";
+import { setUser } from "../features/product/subscriptionSlice";
 import { setButtons, setNav } from "../features/navigation/footerSlice";
 import FormInput from "../components/FormInput";
 import FooterButtons from "../components/FooterButtons";
 import { Box } from "@mui/material";
-import { setUser } from "../features/product/subscriptionSlice";
 
 const UserInfo = () => {
   const { hideBack, hideNext, isConfirm, next, previous } = useSelector(
@@ -100,7 +100,6 @@ const UserInfo = () => {
         />
       </Box>
       <FooterButtons
-        onNextClick={registerForm} //delegation
         hideBack={hideBack}
         hideNext={hideNext}
         isConfirm={isConfirm}

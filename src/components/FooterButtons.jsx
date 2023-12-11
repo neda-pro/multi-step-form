@@ -31,7 +31,7 @@ const FooterButtons = ({
       </Button>
       <Button
         type={isSubmit ? "submit" : "button"}
-        onClick={() => (isSubmit ? null : onNextClick)}
+        onClick={() => (isSubmit ? null : onNextClick())}
         sx={{
           "&:hover": { backgroundColor: "#022959" },
           visibility: hideNext ? "hidden" : "visible",
