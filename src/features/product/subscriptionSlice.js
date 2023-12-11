@@ -20,6 +20,38 @@ const initialState = {
   },
   isYearly: false,
   selectedPlan: "arcade",
+  addOns: [
+    {
+      id: 1,
+      title: "Online service",
+      subTitle: "Access to multiplayer games",
+      price: {
+        monthly: 1,
+        yearly: 10,
+      },
+      isChecked: false,
+    },
+    {
+      id: 2,
+      title: "Larger storage",
+      subTitle: "Extra 1TB of cloud save",
+      price: {
+        monthly: 2,
+        yearly: 20,
+      },
+      isChecked: false,
+    },
+    {
+      id: 3,
+      title: "Customizable profile",
+      subTitle: "Custom theme on your profile",
+      price: {
+        monthly: 2,
+        yearly: 20,
+      },
+      isChecked: false,
+    },
+  ],
 };
 
 const subscriptionSlice = createSlice({
@@ -35,9 +67,13 @@ const subscriptionSlice = createSlice({
     setSelectedPlan: (state, { payload }) => {
       state.selectedPlan = payload;
     },
+    setAddOn: (state, { payload }) => {
+      const addOn = state.addOns.find((addOn) => addOn.id === payload);
+      addOn.isChecked = !addOn.isChecked;
+    },
   },
 });
 
 export default subscriptionSlice.reducer;
-export const { setUser, toggleIsYearly, setSelectedPlan } =
+export const { setUser, toggleIsYearly, setSelectedPlan, setAddOn } =
   subscriptionSlice.actions;
