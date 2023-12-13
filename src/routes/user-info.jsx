@@ -42,9 +42,7 @@ const UserInfo = () => {
 
   const registerForm = (e) => {
     e.preventDefault();
-    // console.log(e.target[0].value);
-    // console.log(e.target[2].value);
-    // console.log(e.target[4].value);
+
     dispatch(
       setUser({
         name: e.target[0].value,

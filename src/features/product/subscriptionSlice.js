@@ -52,6 +52,7 @@ const initialState = {
       isChecked: false,
     },
   ],
+  totalPrice: 0,
 };
 
 const subscriptionSlice = createSlice({
@@ -71,9 +72,17 @@ const subscriptionSlice = createSlice({
       const addOn = state.addOns.find((addOn) => addOn.id === payload);
       addOn.isChecked = !addOn.isChecked;
     },
+    setTotalPrice: (state, { payload }) => {
+      state.totalPrice = payload;
+    },
   },
 });
 
 export default subscriptionSlice.reducer;
-export const { setUser, toggleIsYearly, setSelectedPlan, setAddOn } =
-  subscriptionSlice.actions;
+export const {
+  setUser,
+  toggleIsYearly,
+  setSelectedPlan,
+  setAddOn,
+  setTotalPrice,
+} = subscriptionSlice.actions;

@@ -6,10 +6,15 @@ import { setButtons, setNav } from "../features/navigation/footerSlice";
 import FooterButtons from "../components/FooterButtons";
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import SummaryTable from "../components/SummaryTable";
+import { setTotalPrice } from "../features/product/subscriptionSlice";
 
 const Summary = () => {
   const { hideBack, hideNext, isConfirm, next, previous } = useSelector(
     (store) => store.footer
+  );
+  const { isYearly, selectedPlan, price, addOns, totalPrice } = useSelector(
+    (store) => store.subscription
   );
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,7 +37,24 @@ const Summary = () => {
         previous: "add-ons",
       })
     );
+    calcTotalPrice();
   }, []);
+
+  const calcTotalPrice = () => {
+    let updatePrice = 0;
+    const planPriceObj = isYearly ? price.yearly : price.monthly;
+    const planPrice = planPriceObj[selectedPlan];
+    updatePrice = planPrice;
+    const addOnsPrice = addOns
+      .filter((addOn) => addOn.isChecked)
+      .reduce((acc, cur) => {
+        const value = isYearly ? cur.price.yearly : cur.price.monthly;
+        return acc + value;
+      }, 0);
+    updatePrice += addOnsPrice;
+    dispatch(setTotalPrice(updatePrice));
+  };
+
   return (
     <Box
       sx={{
@@ -44,8 +66,18 @@ const Summary = () => {
       <Box
         sx={{
           flex: 1,
+          paddingTop: "35px",
         }}
-      ></Box>
+      >
+        <SummaryTable
+          title={selectedPlan}
+          price={price}
+          isYearly={isYearly}
+          addOns={addOns}
+          totalPrice={totalPrice}
+          onClick={() => navigate("/plan")}
+        />
+      </Box>
       <FooterButtons
         hideBack={hideBack}
         hideNext={hideNext}

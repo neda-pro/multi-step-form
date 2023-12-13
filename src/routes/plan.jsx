@@ -103,7 +103,6 @@ const Plan = () => {
         hideNext={hideNext}
         isConfirm={isConfirm}
         onNextClick={() => {
-          console.log("clicked");
           navigate(`/${next}`);
         }}
         onPrevClick={() => navigate(`/${previous}`)}
