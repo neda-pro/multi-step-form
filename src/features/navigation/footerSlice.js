@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  isHome: true,
   hideBack: true,
   hideNext: false,
   isConfirm: false,
@@ -23,8 +24,11 @@ const footerSlicer = createSlice({
       state.next = next;
       state.previous = previous;
     },
+    setIsHome: (state, { payload }) => {
+      state.isHome = payload;
+    },
   },
 });
 
 export default footerSlicer.reducer;
-export const { setButtons, setNav } = footerSlicer.actions;
+export const { setButtons, setNav, setIsHome } = footerSlicer.actions;

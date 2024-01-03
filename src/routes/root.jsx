@@ -3,11 +3,12 @@ import { Outlet } from "react-router-dom";
 import { Box, Paper } from "@mui/material";
 import Step from "../components/Step";
 import Heading from "../components/Heading";
+import UserInfo from "./user-info";
 
 export default function Root() {
   const { step } = useSelector((store) => store.step);
   const { title, description } = useSelector((store) => store.heading);
-
+  const { isHome } = useSelector((store) => store.footer);
   return (
     <>
       <Box
@@ -79,7 +80,7 @@ export default function Root() {
           >
             <Heading title={title} description={description} />
             <Box sx={{ display: "flex", flex: 1 }}>
-              <Outlet />
+              {isHome ? <UserInfo /> : <Outlet />}
             </Box>
           </Box>
         </Paper>

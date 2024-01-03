@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDescription, setTitle } from "../features/navigation/headerSlice";
 import { setStep } from "../features/navigation/sideBarSlice";
 import { setUser } from "../features/product/subscriptionSlice";
-import { setButtons, setNav } from "../features/navigation/footerSlice";
+import {
+  setButtons,
+  setIsHome,
+  setNav,
+} from "../features/navigation/footerSlice";
 import FormInput from "../components/FormInput";
 import FooterButtons from "../components/FooterButtons";
 import { Box } from "@mui/material";
@@ -18,6 +22,7 @@ const UserInfo = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setIsHome(true));
     dispatch(setTitle("Personal info"));
     dispatch(
       setDescription(
@@ -51,6 +56,7 @@ const UserInfo = () => {
       })
     );
     navigate(`/${next}`);
+    dispatch(setIsHome(false));
   };
   return (
     <form

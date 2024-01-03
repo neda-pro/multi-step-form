@@ -3,7 +3,7 @@ import { setDescription, setTitle } from "../features/navigation/headerSlice";
 import { useDispatch } from "react-redux";
 import { setStep } from "../features/navigation/sideBarSlice";
 import { setButtons, setNav } from "../features/navigation/footerSlice";
-import { Box, Typography, SvgIcon } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ThankYouIcon from "../assets/images/icon-thank-you.svg?react";
 
 const Done = () => {

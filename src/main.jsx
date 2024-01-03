@@ -10,7 +10,6 @@ import Plan from "./routes/plan";
 import Summary from "./routes/summary";
 import { Provider } from "react-redux";
 import { store } from "./store";
-// import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -18,10 +17,6 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "user-info",
-        element: <UserInfo />,
-      },
       {
         path: "plan",
         element: <Plan />,

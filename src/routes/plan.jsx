@@ -2,7 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setDescription, setTitle } from "../features/navigation/headerSlice";
 import { setStep } from "../features/navigation/sideBarSlice";
-import { setButtons, setNav } from "../features/navigation/footerSlice";
+import {
+  setButtons,
+  setIsHome,
+  setNav,
+} from "../features/navigation/footerSlice";
 import FooterButtons from "../components/FooterButtons";
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -43,7 +47,7 @@ const Plan = () => {
     dispatch(
       setNav({
         next: "add-ons",
-        previous: "user-info",
+        previous: "",
       })
     );
   }, []);
@@ -105,7 +109,10 @@ const Plan = () => {
         onNextClick={() => {
           navigate(`/${next}`);
         }}
-        onPrevClick={() => navigate(`/${previous}`)}
+        onPrevClick={() => {
+          dispatch(setIsHome(true));
+          navigate(`/${previous}`);
+        }}
       />
     </Box>
   );
