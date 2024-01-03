@@ -29,7 +29,7 @@ export default function Root() {
             sx={{
               width: 274,
               height: "100%",
-              backgroundImage: "url(src/assets/images/bg-sidebar-desktop.svg)",
+              backgroundImage: `url(/bg-sidebar-desktop.svg)`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               borderRadius: 3.5,
